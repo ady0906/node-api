@@ -7,6 +7,8 @@ const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// experimenting with MongoDB and API
+
 require('./app/routes')(app, {});
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
