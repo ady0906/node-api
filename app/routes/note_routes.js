@@ -1,6 +1,9 @@
+var ObjectID = require('mongodb').ObjectID;
+
 module.exports = function(app, db) {
   app.get('/notes/:id', (req, res) => {
-    const details = { '_id': '5921f2d935606e4f9d6c830e'};
+    const id = req.params.id;
+    const details = { '_id': new ObjectID(id) };
     db.collection('notes').findOne(details, (err, item) => {
       if (err) {
         res.send({'error': 'Something went down'});
